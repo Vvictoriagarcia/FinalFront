@@ -14,8 +14,7 @@ import { useContextGlobal,ContextGlobal, initialState } from "./Components/utils
 
 
 function App() {
-  const url ='https://jsonplaceholder.typicode.com/users'
-  const {data, setData} = useContextGlobal()
+  const {data} = useContextGlobal()
   const {theme, setTheme} = useContextGlobal()
 
   const handleChangeTheme = () => {
@@ -25,21 +24,11 @@ function App() {
       setTheme(initialState.themes.light)
     }
   }
-    const bringData = () => {
-      axios(url).then(res => {
-        setData(res.data)
-        // console.log(data);
-      })
-    }
-    bringData()
-  
-  
-
   
   
   return (
       <div className={"App " + theme.className}>
-        <ContextGlobal.Provider value={{theme, handleChangeTheme, data, bringData}}>        
+        <ContextGlobal.Provider value={{theme, handleChangeTheme, data}}>        
          <Navbar/> 
           <Routes>
                 <Route exact path="/" element={<Home/>}/>
