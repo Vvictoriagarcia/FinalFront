@@ -5,9 +5,12 @@ import facebook from '../images/ico-facebook.png'
 import instagram from '../images/ico-instagram.png'
 import whatsapp from '../images/ico-whatsapp.png'
 import tiktok from '../images/ico-tiktok.png'
+import { useContextGlobal } from './utils/global.context'
+
 const Footer = () => {
+  const {theme} = useContextGlobal()
   return (
-    <footer className="footer">
+    <footer className={'footer '+ theme.className}>
       <div className='logo'> 
         <img src={imagen} alt='DH-logo' />
       </div>
